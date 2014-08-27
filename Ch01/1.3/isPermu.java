@@ -5,21 +5,18 @@
 //
 import java.util.Arrays;
 
-class Test{
-        public static void main(String[] args){
+class isPermu{
+        public static void main(String[] args) {
                 System.out.println("CareerCup 1.3!!!");
-                String str1 = "jimo";
-                String str2 = "moji";
+                final String str1 = "jimo";
+                final String str2 = "moji";
                 isPermu ip = new isPermu();
                 System.out.println(ip.run1(str1, str2));
                 System.out.println(ip.run2(str1, str2));
         }
-}
-
-class isPermu{
 
         // The first method use sorting to solve the problem, however, this complexity will be O(nlogn)
-        public boolean run1(String str1, String str2){
+        public boolean run1(String str1, String str2) {
                 char[] ch1 = str1.toCharArray();
                 char[] ch2 = str2.toCharArray();
                 Arrays.sort(ch1);
@@ -30,19 +27,21 @@ class isPermu{
         }
 
         // Let's try another way, use some memorization,the complexity can be reduced to O(n)
-        public boolean run2(String str1, String str2){
-                if (str1.length() != str2.length())
+        public boolean run2(String str1, String str2) {
+                if (str1.length() != str2.length()) {
                         return false;
+                }
 
                 char[] m = new char[256];
-                for (int i s= 0; i < str1.length(); i++){
+                for (int i s= 0; i < str1.length(); i++) {
                         int index1  = str1.charAt(i)-'a';
                         m[index1]++;
                 }
-                for (int j = 0; j < str2.length(); j++){
+                for (int j = 0; j < str2.length(); j++) {
                         int index2 = str2.charAt(j)-'a';
-                        if (m[index2]-- < 0)
+                        if (m[index2]-- < 0) {
                                 return false;
+                        }
                 }
                 return true;
         }

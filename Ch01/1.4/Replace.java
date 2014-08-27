@@ -4,31 +4,28 @@
 // Input:  "Mr John Smith    "
 // Output: "Mr%20John%20Smith"
 
-
-class Test{
-        public static void main(String[] args){
+public class Replace {
+        public static void main(String[] args) {
                 System.out.println("CareerCup 1.4!!!");
                 String s = "Mr John Smith    ";
                 Replace r = new Replace();
                 System.out.println(r.run(s));
         }
-}
 
-class Replace{
-        public String run(String str1){
+        public String run(String str1) {
                 int flag = 0;
                 int j = str1.length()-1;
                 char[] ch = str1.toCharArray();
-                for (int i = str1.length()-1; i >= 0; i--){
-                        if (ch[i] == ' ' && flag == 0){
+                for (int i = str1.length()-1; i >= 0; i--) {
+                        if (ch[i] == ' ' && flag == 0) {
                                 continue;
-                        }else if (ch[i] != ' '){
+                        } else if (ch[i] != ' ') {
                                 char temp = ch[j];
                                 ch[j] = ch[i];
                                 ch[i] = temp;
                                 flag = 1;
                                 j--;
-                        }else{
+                        } else {
                                 ch[j] = '0';
                                 ch[j-1] = '2';
                                 ch[j-2] = '%';
