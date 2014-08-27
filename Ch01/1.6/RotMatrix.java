@@ -1,8 +1,6 @@
 // 1.6 Given an image represented by an N x N matrix, where each pixel in the image is 4 bytes, write a method to rotate the image by 90 degrees. Can you do this in place?
 // Errors
-// 1. The most important one is the upper bound of the inner loop (I thought I nailed it, but not), i made a serious mistake here.
-// 2. Good news is: I designed most of the codes my self. Hoorey, keep working on like this.
-// 3. Fuck there are still problems!!! Be careful with the xiabiao
+// The most important one is the upper bound of the inner loop (I thought I nailed it, but not), i made a serious mistake here.
 
 public class RotMatrix {
     public static void main(String[] args) {

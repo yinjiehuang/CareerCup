@@ -8,22 +8,21 @@
 //
 // The first part is easy to deal with, let's write it first
 // FOLLOW UP is also straightforward, I used stack, I think it is totally working, however, I don't think I will implement this...
-
-class Test{
-    public static void main(String[] args){
+public class AddLists {
+    public static void main(String[] args) {
             System.out.println("CareerCup 2.5!!!");
             int[] a1 = new int[]{7,1,6,1};
             int[] a2 = new int[]{5,9,2,2,1};
             ListNode list1 = new ListNode(7);
             ListNode current1 = list1;
-            for (int i = 1; i < a1.length; i++){
+            for (int i = 1; i < a1.length; i++) {
                     current1.next = new ListNode(a1[i]);
                     current1 = current1.next;
             }
             list1.printList();
             ListNode list2 = new ListNode(5);
             ListNode current2 = list2;
-            for (int j = 1; j < a2.length; j++){
+            for (int j = 1; j < a2.length; j++) {
                     current2.next = new ListNode(a2[j]);
                     current2 = current2.next;
             }
@@ -31,56 +30,36 @@ class Test{
             AddLists al = new AddLists();
             al.addLists(list1, list2).printList();
     }
-}
 
-class ListNode{
-    int key;
-    ListNode next;
-
-    ListNode(int key){
-            this.key = key;
-            this.next = null;
-    }
-
-    public void printList(){
-            ListNode head = this;
-            while (head != null){
-                    System.out.print(head.key);
-                    head = head.next;
-            }
-            System.out.println();
-    }
-}
-
-class AddLists{
-    public ListNode addLists(ListNode p1, ListNode p2){
-            if (p1 == null || p2 == null)
+    public ListNode addLists(ListNode p1, ListNode p2) {
+            if (p1 == null || p2 == null) {
                     return null;
+            }
             int value, carry = 0, temp = 0;
             ListNode p3 = null;
             ListNode p3current = null;
-            while (p1 !=null || p2 !=null){
+            while (p1 !=null || p2 !=null) {
             		temp = 0;
-                    if (p1 != null){
+                    if (p1 != null) {
                             temp += p1.key;
                             p1 = p1.next;
                     }
-                    if (p2 != null){
+                    if (p2 != null) {
                             temp += p2.key;
                             p2 = p2.next;
                     }
-                    if (temp >=10){
+                    if (temp >=10) {
                             value = temp-10+carry;
                             carry = 1;
-                    }else{
+                    } else {
                             value = temp + carry;
                             carry = 0;
                     }
                     
-                    if (p3 == null){
+                    if (p3 == null) {
                             p3 = new ListNode(value);
                             p3current = p3;
-                    }else{
+                    } else {
                             p3current.next = new ListNode(value);
                             p3current = p3current.next;
                     }
